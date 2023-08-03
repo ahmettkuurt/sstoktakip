@@ -1,0 +1,61 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/Writerlayout.cshtml";
+}
+
+<h1>Yeni Blog Girişi</h1>
+<br />
+
+@*<form>
+
+    <label class="form-control">Blog Başlığı</label>
+    <input class="form-control" />
+    <br />
+    <label class="form-control">Blog Görseli</label>
+    <input class="form-control" />
+    <br />
+    <label class="form-control" >Blog Küçük Resim</label>
+    <input class="form-control" />
+    <br />
+    
+    <label class="form-control">Kategori</label>
+    <select class="form-control">
+        <option>Ahmet</option>
+        <option>Ahmet</option>
+        <option>Ahmet</option>
+        <option>Ahmet</option>
+        <option>Ahmet</option>
+    </select class="form-control">
+    <br />
+    <label class="form-control">Blog İçeriği</label>
+    <input class="form-control" />
+    <br />
+    <input type="submit" class="btn btn-primary"/>
+    <br />
+</form>*@
+@using (Html.BeginForm("BlogAdd", "blog", FormMethod.Post))
+{
+    <br />
+    <label>Blog Başlığı</label>
+
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(x=>x.BlogTitle,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.BlogTitle)
+    <br />
+    @Html.Label("Blog Görseli")
+    @Html.TextBoxFor(x=>x.BlogImage,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.BlogImage)
+    <br />
+    @Html.Label("Blog küçük Görsel")
+    @Html.TextBoxFor(x=>x.BlogThumbnailImage,new {@class="form-control"})
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.cv,new {@class="form-control"})
+    <br />
+    @Html.Label("Blog İçeriği")
+    @Html.TextAreaFor(x=>x.BlogContent,15,3,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.BlogContent)
+    <br />
+    <button class="btn btn-info">Yazıyı Kaydet </button>
+}

@@ -25,7 +25,7 @@ namespace sstoktakip.Controllers
                 p.WriterStatus = true;
 
                 p.WriterAbout = "Deneme Yazısı";
-                wm.WriterAdd(p);
+                wm.AddT(p);
                 return RedirectToAction("Index", "Blog");
             }
 			else
